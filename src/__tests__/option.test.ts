@@ -1,6 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { Option, Some, None } from '../option';
-import { Panic } from '../panic';
 
 describe('Option', () => {
   describe('Some', () => {
@@ -52,10 +51,7 @@ describe('Option', () => {
     });
 
     it('should throw Panic when unwrap is called', () => {
-      expect(() => option.unwrap()).toThrow(Panic);
-      expect(() => option.unwrap()).toThrow(
-        "called `Option::unwrap()` on a `None` value"
-      );
+      expect(() => option.unwrap()).toThrow('called `Option::unwrap()` on a `None` value');
     });
 
     it('should call none callback in match', () => {
@@ -88,12 +84,11 @@ describe('Option', () => {
 
     it('should handle complex type transformations', () => {
       const option: Option<number> = new Some(10);
-      const doubled = option.match({
+      const doubled = option.match<Option<number>>({
         some: (v) => new Some(v * 2),
-        none: () => new None<number>(),
+        none: () => new None(),
       });
       expect(doubled.unwrap()).toBe(20);
     });
   });
 });
-

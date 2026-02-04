@@ -2,8 +2,6 @@
  * Copyright (c) 2022 Alexander Nitiola
  */
 
-import { Panic } from './panic';
-
 /**
  * The SomeArm represents the Some callback function
  */
@@ -78,7 +76,7 @@ export class None<T = never> extends Option<T> {
   protected readonly _value?: T = undefined;
 
   unwrap(): T {
-    throw new Panic("called `Option::unwrap()` on a `None` value");
+    throw 'called `Option::unwrap()` on a `None` value';
   }
 
   match<R>(pattern: { some: SomeArm<R, T>; none: NoneArm<R> }): R {
@@ -93,4 +91,3 @@ export class None<T = never> extends Option<T> {
     return true;
   }
 }
-

@@ -1,10 +1,9 @@
 /**
  * Copyright (c) 2022 Alexander Nitiola
- * 
+ *
  * Functions return Result whenever errors are expected and recoverable.
  */
 
-import { Panic } from './panic';
 import { Option, Some, None } from './option';
 
 /**
@@ -28,12 +27,12 @@ export abstract class Result<T, E> {
 
   /**
    * Returns `true` if the result is `Ok`.
-   * 
+   *
    * @example
    * ```typescript
    * const x: Result<number, string> = new Ok(21);
    * assert(x.isOk() === true);
-   * 
+   *
    * const y: Result<number, string> = new Err("an error occurred.");
    * assert(y.isOk() === false);
    * ```
@@ -42,12 +41,12 @@ export abstract class Result<T, E> {
 
   /**
    * Returns `true` if the result is `Err`.
-   * 
+   *
    * @example
    * ```typescript
    * const x: Result<number, string> = new Ok(21);
    * assert(x.isErr() === false);
-   * 
+   *
    * const y: Result<number, string> = new Err("an error occurred.");
    * assert(y.isErr() === true);
    * ```
@@ -56,7 +55,7 @@ export abstract class Result<T, E> {
 
   /**
    * Converts from `Result<T, E>` to `Option<T>`.
-   * 
+   *
    * Converts self into an Option<T>, consuming self,
    * and discarding the error, if any.
    */
@@ -64,7 +63,7 @@ export abstract class Result<T, E> {
 
   /**
    * Converts from `Result<T, E>` to `Option<E>`.
-   * 
+   *
    * Converts self into an Option<E>, consuming self,
    * and discarding the success value, if any.
    */
@@ -72,7 +71,7 @@ export abstract class Result<T, E> {
 
   /**
    * Returns the contained Ok value, consuming the self value.
-   * 
+   *
    * Throws Panic if the value is an Err.
    */
   abstract unwrap(): T;
@@ -153,7 +152,6 @@ export class Err<T = never, E = unknown> extends Result<T, E> {
   }
 
   unwrap(): T {
-    throw new Panic(`panic with \`${this._error}\``);
+    throw this._error;
   }
 }
-
