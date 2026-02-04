@@ -1,7 +1,7 @@
 {
   "name": "ruqe",
-  "version": "0.1.0",
-  "description": "Ruqe brings Result-Oriented Programming to TypeScript/JavaScript with Result, Option, Either, and Panic types for predictable error handling",
+  "version": "0.1.1",
+  "description": "Ruqe brings Result-Oriented Programming to TypeScript/JavaScript with Result, and Option types for predictable error handling",
   "packageManager": "pnpm@9.15.4",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -40,12 +40,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thecre8tor/ruqe.git"
+    "url": "https://github.com/thecre8tor/ruqe-ts.git"
   },
   "bugs": {
-    "url": "https://github.com/thecre8tor/ruqe/issues"
+    "url": "https://github.com/thecre8tor/ruqe-ts/issues"
   },
-  "homepage": "https://github.com/thecre8tor/ruqe#readme",
+  "homepage": "https://github.com/thecre8tor/ruqe-ts#readme",
   "devDependencies": {
     "@types/node": "^25.2.0",
     "@typescript-eslint/eslint-plugin": "^8.54.0",

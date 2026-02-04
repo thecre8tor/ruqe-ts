@@ -1,4 +1,4 @@
-import { Result, Ok, Err, Panic } from '../src';
+import { Result, Ok, Err } from '../src';
 
 /**
  * Example demonstrating recoverable and unrecoverable errors
@@ -50,9 +50,7 @@ function demonstrateUnrecoverableError() {
     const errorResult: Result<number, string> = new Err('critical error');
     errorResult.unwrap(); // This will throw a Panic
   } catch (error) {
-    if (error instanceof Panic) {
-      console.log(`Caught Panic: ${error.message}`);
-    }
+    console.log(`Caught Panic: ${error.message}`);
   }
 }
 
@@ -75,4 +73,3 @@ const errResult = new Err('something went wrong');
 
 console.log('Safe handling (Ok):', safelyHandleResult(okResult)); // 42
 console.log('Safe handling (Err):', safelyHandleResult(errResult)); // null
-

@@ -132,24 +132,6 @@ if (option.isSome()) {
 }
 ```
 
-### Panic
-
-Panic terminates the program when it comes across an unrecoverable error.
-
-```typescript
-import { Panic } from 'ruqe';
-
-// Panic is thrown when unwrapping an Err or None
-const result = new Err('error');
-result.unwrap(); // throws Panic
-
-const option = new None();
-option.unwrap(); // throws Panic
-
-// You can also throw it manually for critical errors
-throw new Panic('Critical system error');
-```
-
 ## Advanced Usage
 
 ### Chaining Operations
@@ -260,7 +242,7 @@ function process<T, E>(result: Result<T, E>): T | null {
 
 This library is inspired by:
 
-- [Rust's Result and Option types](https://doc.rust-lang.org/std/result/)
+- [Rust's Result and Option types](https://doc.rust-lang.org/std/result)
 - [Functional programming patterns](https://en.wikipedia.org/wiki/Functional_programming)
 
 ## License
@@ -273,6 +255,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Links
 
-- [GitHub Repository](https://github.com/thecre8tor/ruqe)
-- [Issue Tracker](https://github.com/thecre8tor/ruqe/issues)
-- [npm Package](https://www.npmjs.com/package/ruqe)
+- [GitHub Repository](https://github.com/thecre8tor/ruqe-ts)
+- [Issue Tracker](https://github.com/thecre8tor/ruqe-ts/issues)
+- [npm Package](https://www.npmjs.com/package/ruqe-ts)
